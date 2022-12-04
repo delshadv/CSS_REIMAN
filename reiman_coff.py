@@ -82,15 +82,16 @@ filter_bank_transformer = coffeine.make_filter_bank_transformer(
     projection_params=dict(scale='auto', n_compo=rank)
     )
 model = make_pipeline(
-    filter_bank_transformer, StandardScaler())
-
+            filter_bank_transformer, StandardScaler(),
+            RidgeClassifierCV(alphas=[1e-3, 1e-2, 1e-1, 1]))
 #cv_params = dict(n_splits=10, shuffle=True, random_state=42)
 #cv = KFold(**cv_params)
 
 
 print("Running cross validation ...")
+
 scores = cross_validate(
-    model, X, y, cv=10, scoring = 'balanced_accuracy',
+    model, X, y, cv = 10, scoring=None,
     n_jobs=12)  # XXX too big for joblib
 print("... done.")
 
