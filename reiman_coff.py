@@ -14,13 +14,13 @@ import mne
 import h5io
 import numpy as np
 import pandas as pd
-from sklearn.linear_model import RidgeCV
-from sklearn.dummy import DummyRegressor
+from sklearn.linear_model import RidgeClassifier
+from sklearn.linear_model import RidgeClassifierCV
+
 from sklearn.pipeline import make_pipeline
-from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import StandardScaler, FunctionTransformer
 from sklearn.model_selection import KFold, GridSearchCV, cross_validate
-from sklearn.metrics import make_scorer, r2_score, mean_absolute_error
+from sklearn.metrics import balanced_accuracy_score, make_scorer
 import coffeine
 
 from scipy import io
