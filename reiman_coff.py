@@ -52,25 +52,25 @@ A3 = covs[0,3]
 A4 = covs[0,4]
 A5 = covs[0,5]    
 
-A = np.full((307,204,204,6), 0)
+A = np.full((307,6,204,204), 0)
 
 for ii in range(307):
-    A[ii,:,:,0] = A0[:,:,ii]
+    A[ii,0,:,:] = A0[:,:,ii]
 
 for ii in range(307):
-    A[ii,:,:,1] = A1[:,:,ii]
+    A[ii,1,:,:] = A1[:,:,ii]
 
 for ii in range(307):
-    A[ii,:,:,2] = A2[:,:,ii]
+    A[ii,2,:,:] = A2[:,:,ii]
 
 for ii in range(307):
-    A[ii,:,:,3] = A3[:,:,ii]
+    A[ii,3,:,:] = A3[:,:,ii]
     
 for ii in range(307):
-    A[ii,:,:,4] = A4[:,:,ii]
+    A[ii,4,:,:] = A4[:,:,ii]
     
 for ii in range(307):
-    A[ii,:,:,5] = A5[:,:,ii]
+    A[ii,5,:,:] = A5[:,:,ii]
 
 X = pd.DataFrame(
     {band: list(A[:, ii]) for ii, band in
